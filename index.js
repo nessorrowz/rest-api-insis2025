@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const PORT = 1337;
 
-// Middleware to parse JSON
+// Middleware 
 app.use(express.json());
 
 app.listen(PORT, () => {
@@ -11,9 +11,9 @@ app.listen(PORT, () => {
 });
  
 let users = [];
-let nextId = 1; // Auto-increment ID
+let nextId = 1; // auto increment idnya
 
-// GET all users
+// GET all
 app.get('/users', (req, res) => {
     res.json(users);
 });
@@ -28,7 +28,7 @@ app.post('/users', (req, res) => {
     }
 
     const newUser = {
-        id: nextId++, // Assign current value then increment
+        id: nextId++, // valuenya naik terus
         name,
         email,
         category
@@ -38,7 +38,7 @@ app.post('/users', (req, res) => {
     res.status(201).json(newUser);
 });
 
-// GET - Get a user by ID
+// GET 
 app.get('/users/:id', (req, res) => {
     const user = users.find(u => u.id === parseInt(req.params.id));
     if (!user) {
@@ -47,7 +47,7 @@ app.get('/users/:id', (req, res) => {
     res.json(user);
 });
 
-// PATCH - Update user details
+// PATCH 
 app.patch('/users/:id', (req, res) => {
     const user = users.find(u => u.id === parseInt(req.params.id));
     if (!user) {
@@ -62,7 +62,7 @@ app.patch('/users/:id', (req, res) => {
     res.json(user);
 });
 
-// DELETE - Remove a user
+// DELETE 
 app.delete('/users/:id', (req, res) => {
     const userId = parseInt(req.params.id);
     users = users.filter(u => u.id !== userId);
