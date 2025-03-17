@@ -7,10 +7,13 @@ const PORT = 1337;
 // Middleware
 app.use(express.json());
 
+const cors = require('cors');
+app.use(cors());
+
 // Koneksi ke MongoDB Atlas
 mongoose
   .connect(
-    "mongodb+srv://fikriauliaa27:insistL@cluster-fikri.nvzlc.mongodb.net/INSIS?retryWrites=true&w=majority&appName=cluster-fikri",
+    "mongodb+srv://abhinaya:qyx4CydzeP0wuTyp@insis.kjhrs.mongodb.net/?retryWrites=true&w=majority&appName=insis",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
